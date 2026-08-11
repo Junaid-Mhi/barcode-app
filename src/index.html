@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Generate Barcode</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="card">
+        <h1>Generate Barcode Label</h1>
+
+        <p class="subtitle">Create and print product barcodes</p>
+        <div class="form-group">
+          <label for="product-number"> Number </label>
+
+          <input
+            type="text"
+            id="product-number"
+            placeholder="Enter label number"
+            autocomplete="off"
+          />
+        </div>
+        <div class="form-group">
+          <label for="product-name"> Product Name </label>
+
+          <textarea
+            id="product-name"
+            placeholder="Enter name or details..."
+            rows="4"
+            autocomplete="off"
+          ></textarea>
+        </div>
+
+        <button type="button" id="generate-button" class="generate-button">
+          Generate Barcode
+        </button>
+
+        <div id="error-message" class="error-message"></div>
+      </div>
+
+      <div id="barcode-card" class="card barcode-card">
+        <div class="barcode-label">
+          <div id="barcode-product-name" class="barcode-product-name"></div>
+
+          <svg id="barcode"></svg>
+
+          <div id="barcode-product-number" class="barcode-product-number"></div>
+        </div>
+
+        <button id="print-button" class="print-button">Print Barcode</button>
+      </div>
+    </div>
+
+    <!-- Local barcode library -->
+    <script src="js/JsBarcode.all.min.js"></script>
+
+    <!-- Your application JavaScript -->
+    <script src="main.js"></script>
+  </body>
+</html>
