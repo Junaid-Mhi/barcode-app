@@ -28,7 +28,32 @@ function clearError() {
   errorMessage.style.display = "none";
 }
 
-// Load saved Auto Print setting
+
+document.addEventListener('paste', function (e) {
+    e.preventDefault();
+
+    const pastedData = (e.clipboardData || window.clipboardData)
+        .getData('text');
+
+    const values = pastedData
+        .split(/\t|\n/)
+        .map(value => value.trim())
+        .filter(value => value !== '');
+
+    const numberInput =
+        document.getElementById('product-number');
+
+    const nameInput =
+        document.getElementById('product-name');
+
+    if (values.length > 0) {
+        numberInput.value = values[0];
+    }
+
+    if (values.length > 1) {
+        nameInput.value = values[1];
+    }
+});
 
 generateButton.addEventListener("click", function () {
   clearError();
@@ -64,18 +89,29 @@ generateButton.addEventListener("click", function () {
       format: "CODE128",
       width: 2,
       height: 30,
-      displayValue: true,
+      displayValue: false,
     });
-
-    barcodeProductName.textContent = productName;
 
     barcodeProductNumber.textContent = productNumber;
 
+    barcodeProductName.textContent = productName;
+
+
+      barcodeProductName.textContent =
+    productName.length > 82
+        ? productName.substring(0, 82) + '...'
+        : productName;
+
+
     barcodeCard.style.display = "block";
+    
+    productNumberInput.value = '';
 
     setTimeout(() => {
       window.print();
     }, 300);
+
+  
   } catch (error) {
     console.error(error);
 
@@ -83,9 +119,65 @@ generateButton.addEventListener("click", function () {
   }
 });
 
-printButton.addEventListener("click", function () {
-  window.print();
+printButton.addEventListener("click", async function () { // 
+  try {
+    await window.__TAURI_INTERNALS__.invoke(
+      "plugin:printer-v2|print_html",
+      {
+        options: {
+          html: document.documentElement.outerHTML,
+          pageWidth: 70,
+          pageHeight: 32,
+          margin: { top: 0, right: 0, bottom: 0, left: 0 },
+          copies: 1,
+          orientation: "Portrait"
+        }
+      }
+    );
+    console.log("Label sent to printer");
+  } catch (error) {
+    console.error("Printing failed:", error);
+    alert("Printing failed: " + error);
+  }
 });
+
+
+
+// printButton.addEventListener("click", function () {
+//   try {
+
+//         await window.__TAURI_INTERNALS__.invoke(
+//             "plugin:printer-v2|print_html",
+//             {
+//                 options: {
+//                     html: document.documentElement.outerHTML,
+
+//                     pageWidth: 70,
+//                     pageHeight: 32,
+
+//                     margin: {
+//                         top: 0,
+//                         right: 0,
+//                         bottom: 0,
+//                         left: 0
+//                     },
+
+//                     copies: 1,
+//                     orientation: "Portrait"
+//                 }
+//             }
+//         );
+
+//         console.log("Label sent to printer");
+
+//     } catch (error) {
+
+//         console.error("Printing failed:", error);
+
+//         alert("Printing failed: " + error);
+
+//     }
+// });
 
 productNumberInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

@@ -54,6 +54,11 @@ h1 {
   outline: none;
 }
 
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .form-group input:focus {
   border-color: #495057;
 }
@@ -123,21 +128,197 @@ h1 {
   color: #842029;
 }
 
+/*  */
 .barcode-card {
-  display: none;
+    display: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .barcode-label {
-  text-align: center;
-  background: #ffffff;
-  padding: 20px;
+    width: 68mm;
+    min-height: 30mm;
+
+    padding: 1mm;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
 }
 
+
+/* Name */
+
 .barcode-product-name {
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: 700;
+    width: 60mm;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    line-height: 1.15;
+
+    margin-bottom: 2mm;
+
+    /*
+     * Maximum 3 lines
+     */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    overflow: hidden;
+
+    word-break: normal;
 }
+
+
+/* Barcode */
+
+.barcode-svg {
+    display: block;
+
+    width: auto;
+
+    height: 30px;
+
+    margin: 0 auto;
+
+    overflow: visible;
+}
+
+
+/* Number */
+
+.barcode-product-number {
+    width: 60mm;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin-top: 3px;
+
+    white-space: nowrap;
+}
+
+ @media print {
+
+     @page {
+        size: 10mm 32mm;
+        margin: 0;
+    } 
+
+    html,
+    body {
+        size: 10mm 32mm !important;
+
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .app {
+        size: 70mm 32mm !important;
+        width: 70mm !important;
+        height: 32mm !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .app > .card:first-child {
+        display: none !important;
+    }
+
+    .barcode-card {
+        display: block !important;
+
+        width: 70mm !important;
+        height: 32mm !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .barcode-label {
+        width: 68mm !important;
+        height: 30mm !important;
+
+        margin: 0 auto !important;
+        padding: 1mm !important;
+
+    }
+
+    .print-button {
+        display: none !important;
+    }
+} 
+
+/* Print */
+
+@media print {
+
+    @page {
+        size: 70mm 32mm;
+        margin: 0;
+    }
+
+    html,
+    body {
+        size: 70mm 32mm;
+        width: 70mm;
+        height: 32mm;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .app {
+        width: 70mm;
+        height: 32mm;
+background: rgb(0, 255, 42) !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .barcode-card {
+        display: block !important;
+        width: 70mm;
+        height: 32mm;
+
+        margin: 0;
+        padding: 0;
+background: red !important;
+
+        box-shadow: none;
+        border: none;
+    }
+
+    .print-button {
+        display: none;
+    }
+} 
 
 #product-name {
   width: 100%;

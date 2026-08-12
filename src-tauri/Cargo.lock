@@ -222,6 +222,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-opener",
+ "tauri-plugin-printer-v2",
 ]
 
 [[package]]
@@ -3527,6 +3528,24 @@ dependencies = [
  "url",
  "windows",
  "zbus",
+]
+
+[[package]]
+name = "tauri-plugin-printer-v2"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f83a7e54ce07a8665c181e8a34f2128c37a62e4f5d2f7b814f81a1dd46137cc8"
+dependencies = [
+ "base64 0.22.1",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-plugin",
+ "thiserror 2.0.20",
+ "tokio",
+ "url",
+ "webview2-com",
+ "windows",
 ]
 
 [[package]]
