@@ -107,9 +107,9 @@ generateButton.addEventListener("click", function () {
     
     productNumberInput.value = '';
 
-    setTimeout(() => {
-      window.print();
-    }, 300);
+    // setTimeout(() => {
+    //   window.print();
+    // }, 300);
 
   
   } catch (error) {
@@ -118,65 +118,54 @@ generateButton.addEventListener("click", function () {
     showError("Unable to generate barcode.");
   }
 });
+printButton.addEventListener("click", async function () {
+    try {
+        const productName = barcodeProductName.textContent.trim();
+        const productNumber = barcodeProductNumber.textContent.trim();
 
-printButton.addEventListener("click", async function () { // 
-  try {
-    await window.__TAURI_INTERNALS__.invoke(
-      "plugin:printer-v2|print_html",
-      {
-        options: {
-          html: document.documentElement.outerHTML,
-          pageWidth: 70,
-          pageHeight: 32,
-          margin: { top: 0, right: 0, bottom: 0, left: 0 },
-          copies: 1,
-          orientation: "Portrait"
+        if (!productName || !productNumber) {
+            alert("Please generate a label first.");
+            return;
         }
-      }
-    );
-    console.log("Label sent to printer");
-  } catch (error) {
-    console.error("Printing failed:", error);
-    alert("Printing failed: " + error);
-  }
+
+        const result = await window.__TAURI__.core.invoke("print_label", {
+            productName: productName,
+            productNumber: productNumber
+        });
+
+        console.log(result);
+        alert("Label sent to printer.");
+    } catch (error) {
+        console.error("Printing failed:", error);
+        alert("Printing failed: " + error);
+    }
 });
+// printButton.addEventListener("click", async function () { // 
+//   try {
+//     await window.__TAURI_INTERNALS__.invoke(
+//       "plugin:printer-v2|print_html",
+//       {
+//         options: {
+//           html: document.documentElement.outerHTML,
+//           pageWidth: 70,
+//           pageHeight: 32,
+//           margin: { top: 0, right: 0, bottom: 0, left: 0 },
+//           copies: 1,
+//           orientation: "Portrait"
+//         }
+//       }
+//     );
+//     console.log("Label sent to printer");
+//   } catch (error) {
+//     console.error("Printing failed:", error);
+//     alert("Printing failed: " + error);
+//   }
+// });
 
 
 
 // printButton.addEventListener("click", function () {
-//   try {
-
-//         await window.__TAURI_INTERNALS__.invoke(
-//             "plugin:printer-v2|print_html",
-//             {
-//                 options: {
-//                     html: document.documentElement.outerHTML,
-
-//                     pageWidth: 70,
-//                     pageHeight: 32,
-
-//                     margin: {
-//                         top: 0,
-//                         right: 0,
-//                         bottom: 0,
-//                         left: 0
-//                     },
-
-//                     copies: 1,
-//                     orientation: "Portrait"
-//                 }
-//             }
-//         );
-
-//         console.log("Label sent to printer");
-
-//     } catch (error) {
-
-//         console.error("Printing failed:", error);
-
-//         alert("Printing failed: " + error);
-
-//     }
+//     window.print();
 // });
 
 productNumberInput.addEventListener("keydown", function (event) {
