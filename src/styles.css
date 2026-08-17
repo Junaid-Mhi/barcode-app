@@ -226,106 +226,7 @@ h1 {
     white-space: nowrap;
 }
 
- @media print {
 
-     @page {
-        size: 10mm 32mm;
-        margin: 0;
-    } 
-
-    html,
-    body {
-        size: 65mm 30mm !important;
-
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .app {
-        size: 65mm 30mm !important;
-        width: 65mm !important;
-        height: 30mm !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .app > .card:first-child {
-        display: none !important;
-    }
-
-    .barcode-card {
-        display: block !important;
-
-        width: 65mm !important;
-        height: 30mm !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        box-shadow: none !important;
-        border: none !important;
-    }
-
-    .barcode-label {
-        width: 68mm !important;
-        height: 30mm !important;
-
-        margin: 0 auto !important;
-        padding: 1mm !important;
-
-    }
-
-    .print-button {
-        display: none !important;
-    }
-} 
-
-/* Print */
-
-@media print {
-
-    @page {
-        size: 65mm 30mm;
-        margin: 0;
-    }
-
-    html,
-    body {
-        size: 65mm 30mm;
-        width: 65mm;
-        height: 30mm;
-
-        margin: 0;
-        padding: 0;
-    }
-
-    .app {
-        width: 65mm;
-        height: 30mm;
-background: rgb(0, 255, 42) !important;
-        margin: 0;
-        padding: 0;
-    }
-
-    .barcode-card {
-        display: block !important;
-        width: 70mm;
-        height: 32mm;
-
-        margin: 0;
-        padding: 0;
-background: red !important;
-
-        box-shadow: none;
-        border: none;
-    }
-
-    .print-button {
-        display: none;
-    }
-} 
 
 #product-name {
   width: 100%;
@@ -360,33 +261,210 @@ background: red !important;
   font-weight: 900 !important;
   letter-spacing: 1px;
 }
-
-/* Printing */
-
 @media print {
-  body {
-    background: white;
-    padding: 0;
-  }
 
-  body * {
-    visibility: hidden;
-  }
+    /* ==============================
+       PRINT PAGE
+       ============================== */
 
-  .barcode-label,
-  .barcode-label * {
-    visibility: visible;
-  }
+    @page {
+        size: 70mm 32mm;
+        margin: 0;
+    }
 
-  .barcode-label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    box-shadow: none;
-  }
+    html,
+    body {
+        width: 70mm !important;
+        height: 32mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        overflow: hidden !important;
+    }
 
-  .print-button {
-    display: none;
-  }
+
+    /* ==============================
+       HIDE NORMAL APPLICATION UI
+       ============================== */
+
+    body * {
+        visibility: hidden;
+    }
+
+    .barcode-label,
+    .barcode-label * {
+        visibility: visible;
+    }
+
+
+    /* ==============================
+       MAIN APP CONTAINER
+       ============================== */
+
+    .app {
+        width: 70mm !important;
+        height: 32mm !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .app > .card:first-child {
+        display: none !important;
+    }
+
+
+    /* ==============================
+       BARCODE CARD
+       ============================== */
+
+    .barcode-card {
+        display: block !important;
+
+        width: 70mm !important;
+        height: 32mm !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* ==============================
+       BARCODE LABEL
+       ============================== */
+
+    .barcode-label {
+        position: absolute !important;
+
+        left: 0 !important;
+        top: 0 !important;
+
+        width: 70mm !important;
+        height: 32mm !important;
+
+        margin: 0 !important;
+        padding: 1mm !important;
+
+        box-sizing: border-box !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+
+        text-align: center !important;
+
+        overflow: hidden !important;
+
+        background: white !important;
+
+        break-before: avoid !important;
+        break-after: avoid !important;
+        break-inside: avoid !important;
+
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+
+    /* ==============================
+       PRODUCT NAME
+       ============================== */
+
+    .barcode-product-name {
+        width: 64mm !important;
+        max-width: 64mm !important;
+
+        margin: 0 0 1.5mm 0 !important;
+        padding: 0 !important;
+
+        text-align: center !important;
+
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 900 !important;
+
+        line-height: 1.15 !important;
+
+        white-space: normal !important;
+
+        overflow: hidden !important;
+
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 3 !important;
+
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+
+        flex-shrink: 0 !important;
+    }
+
+
+    /* ==============================
+       BARCODE
+       ============================== */
+
+    .barcode-svg {
+        display: block !important;
+
+        width: auto !important;
+        height: 30px !important;
+
+        max-width: 64mm !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        overflow: visible !important;
+
+        flex-shrink: 0 !important;
+    }
+
+
+    /* ==============================
+       BARCODE NUMBER
+       ============================== */
+
+    .barcode-product-number {
+        width: 64mm !important;
+        max-width: 64mm !important;
+
+        margin: 2px 0 0 0 !important;
+        padding: 0 !important;
+
+        text-align: center !important;
+
+        font-family: Arial, Helvetica, sans-serif !important;
+
+        font-size: 16px !important;
+        font-weight: 900 !important;
+
+        line-height: 1 !important;
+
+        letter-spacing: 1px !important;
+
+        white-space: nowrap !important;
+
+        overflow: hidden !important;
+
+        flex-shrink: 0 !important;
+    }
+
+
+    /* ==============================
+       HIDE PRINT BUTTON
+       ============================== */
+
+    .print-button {
+        display: none !important;
+    }
 }
