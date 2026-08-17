@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 30px;
   font-family: Arial, sans-serif;
-  background: #cceef2;
   color: #212529;
 }
 
@@ -48,7 +47,7 @@ h1 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 900;
+  font-weight: 900 !important;
 }
 
 .form-group input {
@@ -85,14 +84,13 @@ h1 {
   padding: 15px;
   border: 1px solid #dee2e6;
   border-radius: 8px;
-  background: #f8f9fa;
 }
 
 .switch-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 900;
+  font-weight: 900 !important;
   cursor: pointer;
 }
 
@@ -108,23 +106,14 @@ h1 {
   color: #6c757d;
 }
 .generate-button {
-  background: #0d6efd;
   color: white;
-}
-
-.generate-button:hover {
-  background: #0b5ed7;
 }
 
 .print-button {
   margin-top: 20px;
-  background: #198754;
   color: white;
 }
 
-.print-button:hover {
-  background: #157347;
-}
 
 .error-message {
   display: none;
@@ -242,7 +231,6 @@ h1 {
   outline: none;
 }
 #product-name:focus {
-  border-color: #0d6efd;
   box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
 }
 #product-name::placeholder {
@@ -274,11 +262,11 @@ h1 {
 
     html,
     body {
+        size: 70mm 32mm !important;
         width: 70mm !important;
         height: 32mm !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: white !important;
         overflow: hidden !important;
     }
 
@@ -319,7 +307,6 @@ h1 {
        ============================== */
 
     .barcode-card {
-      background: rgb(51, 206, 51) !important;
         display: block !important;
 
         width: 70mm !important;
@@ -365,8 +352,6 @@ h1 {
 
         overflow: hidden !important;
 
-        background: blue !important;
-
         break-before: avoid !important;
         break-after: avoid !important;
         break-inside: avoid !important;
@@ -382,17 +367,16 @@ h1 {
        ============================== */
 
     .barcode-product-name {
-      background: rgb(147, 206, 51) !important;
         width: 64mm !important;
         max-width: 64mm !important;
 
-        margin: 0 0 1.5mm 0 !important;
+        margin: 0 0 1mm 0 !important;
         padding: 0 !important;
 
         text-align: center !important;
 
         font-family: Arial, Helvetica, sans-serif !important;
-        font-size: 11px !important;
+        font-size: 12px !important;
         font-weight: 900 !important;
 
         line-height: 1.15 !important;
@@ -417,7 +401,6 @@ h1 {
        ============================== */
 
     .barcode-svg {
-      background: rgb(221, 120, 120) !important;
         display: block !important;
 
         width: auto !important;
@@ -439,18 +422,17 @@ h1 {
        ============================== */
 
     .barcode-product-number {
-      background: rgb(206, 51, 51) !important;
         width: 64mm !important;
         max-width: 64mm !important;
 
-        margin: 2px 0 0 0 !important;
+        margin: 1px 0 0 0 !important;
         padding: 0 !important;
 
         text-align: center !important;
 
         font-family: Arial, Helvetica, sans-serif !important;
 
-        font-size: 16px !important;
+        font-size: 18px !important;
         font-weight: 900 !important;
 
         line-height: 1 !important;
