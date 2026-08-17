@@ -48,7 +48,7 @@ h1 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .form-group input {
@@ -92,7 +92,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
+  font-weight: 900;
   cursor: pointer;
 }
 
@@ -172,7 +172,7 @@ h1 {
 
     font-size: 11px;
 
-    font-weight: bold;
+    font-weight: 900;
 
     line-height: 1.15;
 
@@ -235,7 +235,7 @@ h1 {
 
     html,
     body {
-        size: 10mm 32mm !important;
+        size: 65mm 30mm !important;
 
 
         margin: 0 !important;
@@ -243,9 +243,9 @@ h1 {
     }
 
     .app {
-        size: 70mm 32mm !important;
-        width: 70mm !important;
-        height: 32mm !important;
+        size: 65mm 30mm !important;
+        width: 65mm !important;
+        height: 30mm !important;
 
         margin: 0 !important;
         padding: 0 !important;
@@ -258,8 +258,8 @@ h1 {
     .barcode-card {
         display: block !important;
 
-        width: 70mm !important;
-        height: 32mm !important;
+        width: 65mm !important;
+        height: 30mm !important;
 
         margin: 0 !important;
         padding: 0 !important;
@@ -287,23 +287,23 @@ h1 {
 @media print {
 
     @page {
-        size: 70mm 32mm;
+        size: 65mm 30mm;
         margin: 0;
     }
 
     html,
     body {
-        size: 70mm 32mm;
-        width: 70mm;
-        height: 32mm;
+        size: 65mm 30mm;
+        width: 65mm;
+        height: 30mm;
 
         margin: 0;
         padding: 0;
     }
 
     .app {
-        width: 70mm;
-        height: 32mm;
+        width: 65mm;
+        height: 30mm;
 background: rgb(0, 255, 42) !important;
         margin: 0;
         padding: 0;
@@ -357,7 +357,7 @@ background: red !important;
 .barcode-product-number {
   margin-top: 8px;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 900 !important;
   letter-spacing: 1px;
 }
 
