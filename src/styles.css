@@ -319,6 +319,7 @@ h1 {
        ============================== */
 
     .barcode-card {
+      background: rgb(51, 206, 51) !important;
         display: block !important;
 
         width: 70mm !important;
@@ -332,6 +333,7 @@ h1 {
         box-shadow: none !important;
 
         overflow: hidden !important;
+
     }
 
 
@@ -363,7 +365,7 @@ h1 {
 
         overflow: hidden !important;
 
-        background: white !important;
+        background: blue !important;
 
         break-before: avoid !important;
         break-after: avoid !important;
@@ -380,6 +382,7 @@ h1 {
        ============================== */
 
     .barcode-product-name {
+      background: rgb(147, 206, 51) !important;
         width: 64mm !important;
         max-width: 64mm !important;
 
@@ -414,6 +417,7 @@ h1 {
        ============================== */
 
     .barcode-svg {
+      background: rgb(221, 120, 120) !important;
         display: block !important;
 
         width: auto !important;
@@ -435,6 +439,7 @@ h1 {
        ============================== */
 
     .barcode-product-number {
+      background: rgb(206, 51, 51) !important;
         width: 64mm !important;
         max-width: 64mm !important;
 
