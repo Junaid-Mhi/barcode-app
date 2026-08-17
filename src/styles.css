@@ -383,7 +383,7 @@ h1 {
         width: 64mm !important;
         max-width: 64mm !important;
 
-        margin: 0 0 1mm 0 !important;
+        margin: 0 !important;
         padding: 0 !important;
 
         text-align: center !important;
@@ -391,7 +391,7 @@ h1 {
         font-family: Arial, Helvetica, sans-serif !important;
         font-size: 11px !important;
         font-weight: 400 !important;
-
+       line-height: 1.15 !important;
 
         overflow: hidden !important;
 
