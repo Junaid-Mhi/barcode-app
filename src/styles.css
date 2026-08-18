@@ -380,8 +380,8 @@ h1 {
        ============================== */
 
     .barcode-product-name {
-        width: 64mm !important;
-        max-width: 64mm !important;
+        width: 54mm !important;
+        max-width: 54mm !important;
 
         margin: 0 !important;
         padding: 0 !important;
